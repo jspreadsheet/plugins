@@ -7,6 +7,15 @@
  * This plugin converts a Jexcel Spreadsheet content to a XLS file.
  */
 
+if (! jSuites && typeof(require) === 'function') {
+    var jSuites = require('jsuites');
+    var jsuites = jSuites;
+}
+
+if (! jexcel && typeof(require) === 'function') {
+    var jexcel = require('jexcel-pro');
+}
+
 ;(function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
     typeof define === 'function' && define.amd ? define(factory) :

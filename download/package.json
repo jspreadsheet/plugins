@@ -1,15 +1,10 @@
 {
-    "name": "download",
+    "name": "jexceldownload2",
     "title": "Jexcel Plugin: export to xls file.",
     "description": "Convert a spreadsheet content to XSL.",
     "author": {
-        "name": "Rodware <contact@jsuites.net>",
+        "name": "Hodware <contact@jsuites.net>",
         "url": "https://jsuites.net/"
-    },
-    "repository": {
-        "type" : "git",
-        "url" : "https://github.com/jspreadsheet/plugins.git",
-        "directory": "download"
     },
     "keywords": [
         "spreadsheet",
@@ -24,5 +19,5 @@
         "data-spreadsheet"
     ],
     "main": "dist/download.js",
-    "version": "1.0.0"
+    "version": "1.0.3"
 }
