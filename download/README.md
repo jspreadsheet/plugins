@@ -27,7 +27,7 @@ This is an official Jexcel Plugin.<br><br>
 <h2>License</h2>
 MIT distribution<br><br>
 
-<h2>Example</h2>
+<h2>Example using the browser</h2>
 A following working example can be found <a href='https://jexcel.net/plugins/jexcel-to-excel'>here</a><br><br>
 
 <pre class="prettyprint linenums">
@@ -51,8 +51,14 @@ jexcel(document.getElementById('spreadsheet'), {
 &#60;/html>
 </pre>
 
-<h2>Example using NPM</h2>
+<h3>Example using NPM</h3>
+% npm install @jspreadsheet/download
 
 <pre class="prettyprint linenums">
-% npm install @jspreadsheet/download
+import download from '@jspreadsheet/download';
+
+download(document.getElementById('spreadsheet'), {
+    filename: 'file.xsl',
+    author: 'Lennon',
+});
 </pre>
