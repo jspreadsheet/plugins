@@ -26,7 +26,20 @@ Official <a href='https://github.com/jexcel/plugin-jexcel-to-excel-export'>githu
 <h2>Example</h2>
 See a working example: <a href='/v7/examples/jexcel-to-excel-export'>export to XLS</a><br><br>
 
-<h2>Source code</h2>
+<h3>Example using NPM</h3>
+
+% npm install @jspreadsheet/download
+
+<pre class="prettyprint linenums">
+import download from '@jspreadsheet/download';
+
+download(document.getElementById('spreadsheet'), {
+    filename: 'file.xsl',
+    author: 'Lennon',
+});
+</pre>
+
+<h3>Example using the browser</h3>
 
 <pre class="prettyprint linenums">
 &#60;html>
