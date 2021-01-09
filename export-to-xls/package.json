@@ -1,0 +1,28 @@
+{
+    "name": "@jspreadsheet/export-to-xls",
+    "title": "Jspreadsheet plugins: export to xls file.",
+    "description": "Convert a spreadsheet content to XSL.",
+    "author": {
+        "name": "Jspreadsheet <contact@jexcel.net>",
+        "url": "https://jexcel.net/"
+    },
+    "repository": {
+        "type" : "git",
+        "url" : "https://github.com/jspreadsheet/plugins.git",
+        "directory": "export-to-xls"
+    },
+    "keywords": [
+        "spreadsheet",
+        "spreadsheets",
+        "tables",
+        "table",
+        "excel",
+        "grid",
+        "grid-editor",
+        "data-table",
+        "data-grid",
+        "data-spreadsheet"
+    ],
+    "main": "dist/download.js",
+    "version": "1.0.4"
+}
