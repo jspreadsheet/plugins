@@ -1,35 +1,28 @@
 /**
- * Official Jspreadsheet plugins
+ * Official jExcel Plugins
  *
- * Website: https://jspreasheet.com
+ * Author: Paul Hodel <paul.hodel@gmail.com>
+ * Website: https://jexcel.net
  * Description: Create amazing web based spreadsheets.
  *
- * This plugin converts a Jexcel Spreadsheet content to a XLS file.
+ * This software is free to use. Visit: https://jexcel.net/v7
  */
 
-if (! jSuites && typeof(require) === 'function') {
-    var jSuites = require('jsuites');
-    var jsuites = jSuites;
-}
+jexcel.download = (function(el, options){
+    var data = '';
 
-if (! jexcel && typeof(require) === 'function') {
-    var jexcel = require('jexcel-pro');
-}
-
-;(function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-    typeof define === 'function' && define.amd ? define(factory) :
-    global.download = factory();
-}(this, (function () {
-
+    var plugin = {};
+    var worksheets = [];
     var styles = {};
     var styleIndex = 1;
+
 
     /**
      * Rgb to hex helpers
      */
-    var rgbToHex = function(color) {
+    plugin.rgbToHex = function(color) {
         color = ""+ color;
+        color = color.toLowerCase();
         if (!color || color.indexOf("rgb") < 0) {
             return color;
         }
@@ -38,10 +31,31 @@ if (! jexcel && typeof(require) === 'function') {
             return color;
         }
 
-        var nums = /(.*?)rgb\((\d+),\s*(\d+),\s*(\d+)\)/i.exec(color),
-            r = parseInt(nums[2], 10).toString(16),
-            g = parseInt(nums[3], 10).toString(16),
-            b = parseInt(nums[4], 10).toString(16);
+        if(color.indexOf("rgba")>-1) {
+            var nums = /(.*?)rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d+)\)/i.exec(color),
+                a = parseInt(nums[2], 10),
+                r = parseInt(nums[3], 10),
+                g = parseInt(nums[4], 10),
+                b = parseInt(nums[5], 10);
+        
+                if(a==0) {
+                    return ""; // Color transparent
+                }
+        
+                // Convert to RGB
+                r = Math.round(((1 - a) * 255) + (a * r));
+                g = Math.round(((1 - a) * 255) + (a * g));
+                b = Math.round(((1 - a) * 255) + (a * b));
+                
+                r = r.toString(16),
+                g = g.toString(16),
+                b = b.toString(16);
+        } else {
+            var nums = /(.*?)rgb\((\d+),\s*(\d+),\s*(\d+)\)/i.exec(color),
+                r = parseInt(nums[2], 10).toString(16),
+                g = parseInt(nums[3], 10).toString(16),
+                b = parseInt(nums[4], 10).toString(16);
+        }
 
         return "#"+ (
             (r.length == 1 ? "0"+ r : r) +
@@ -50,42 +64,101 @@ if (! jexcel && typeof(require) === 'function') {
         );
     }
 
-    /**
-     * Parse the CSS style
-     */
-    var parseCSS = function(css) {
-       var result = [];
-       css = css.split(';');
 
-       for (var i = 0; i < css.length; i++) {
-           if (css[i].trim()) {
-               var t = css[i].split(':');
-               result[t[0].trim()] = t[1].trim();
-           }
-       }
-
-       return result;
+    // Set options
+    plugin.options = Object.assign({},options);
+    
+    // Options
+    var defaultOptions = {
+         filename: 'jexcel',
+         author: 'Jexcel',
+         sheets: null, // Specifics sheet to download => null = all, array specifics index of sheets, int specific index of sheet
+         header: false,
+         computedStyle: false,
+         styleHeader: 'border: 1px solid #cccccc;background-color: #f3f3f3;text-align: center;',
+         wrapText: false
     }
+    
+
+    // Set default value
+    if(options==null) {
+       plugin.options = {};
+    }
+    for(var property in defaultOptions) {
+        if (!plugin.options.hasOwnProperty(property) || plugin.options[property]==null ) {
+            plugin.options[property] = defaultOptions[property];
+        }
+    } 
 
     /**
      * Helpers to deal with the export to jexcel to excel
      */
     var helpers = function() {
         var o = {};
-
         o.getData = function() {
             // Create XML cell
             var get = function(o) {
                 if (! o.data && ! o.comments) {
-                    return '<Cell/>';
+                    return `<Cell${o.styleId}${o.merge}/>`;
                 } else {
-                    return `<Cell${o.styleId}${o.formula}><Data ss:Type="${o.type}">${o.data}</Data>${o.comments}</Cell>`;
+                    return `<Cell${o.styleId}${o.formula}${o.merge}><Data ss:Type="${o.type}">${o.data}</Data>${o.comments}</Cell>`;
                 }
             }
 
             // Containers
             var rows = [];
             var cols = [];
+            
+            // Header
+            if(plugin.options.header) {
+                if(this.instance.options.nestedHeaders && this.instance.options.nestedHeaders.length > 0) {
+                    // Flexible way to handle nestedheaders
+                    for (var j = 0; j < this.instance.options.nestedHeaders.length; j++) {
+                        cols = [];
+                        for(var i = 0; i < this.instance.options.nestedHeaders[j].length; i++) {
+                            // Create cells
+                            var o = { styleId:'', type:'', data:'', formula:'', comments:'', merge:''};
+                            // Column name
+                            o.data = (this.instance.options.nestedHeaders[j][i].title);
+                            // Style
+                            o.styleId = plugin.makeStyle(plugin.options.styleHeader);
+
+                            // Merge (colspan)
+                            if(this.instance.options.nestedHeaders[j][i].colspan) {
+                                o.merge = plugin.makeMerge(parseInt(this.instance.options.nestedHeaders[j][i].colspan)-1);
+                            }
+
+                            // Type
+                            o.type = 'String';
+
+                            // Add value
+                            cols.push(get(o));
+                        }
+                        rows.push('<Row>' + cols.join('') + '</Row>');
+                    }
+                }
+                
+                cols = [];
+                for (var ite_col in this.instance.headers) {
+                    // Create cells
+                    var o = { styleId:'', type:'', data:'', formula:'', comments:'', merge:''};
+                    // Column name
+                    o.data = (this.instance.headers[ite_col].outerText||this.instance.headers[ite_col].innerHTML);
+                    // Style
+                    if(plugin.options.computedStyle) {
+                        o.styleId = plugin.makeStyle(window.getComputedStyle(this.instance.headers[ite_col], null).cssText);
+                    } else {
+                        o.styleId = plugin.makeStyle(plugin.options.styleHeader);
+                    }
+                    // Type
+                    o.type = 'String';
+                    
+                    // Add value
+                    cols.push(get(o));
+                }
+                
+                rows.push('<Row>' + cols.join('') + '</Row>');
+            }
 
             // Get data
             this.data = this.instance.data(null, false, false);
@@ -185,30 +258,91 @@ if (! jexcel && typeof(require) === 'function') {
 
         o.getStyle = function(columnName, i, j) {
             if (this.instance.records[j][i].element) {
-                var val = this.instance.records[j][i].element.getAttribute('style');
+                if(plugin.options.computedStyle) {
+                    var val = window.getComputedStyle(this.instance.records[j][i].element, null).cssText;
+                } else {
+                    var val = this.instance.records[j][i].element.getAttribute('style');
+                }
             } else {
                 var val = this.instance.getStyle(columnName);
             }
             if (val) {
-                if (! styles[val]) {
-                    styles[val] = {
-                        id: styleIndex++,
-                        content: applyStyle(val),
-                    }
-                }
-                return ' ss:StyleID="' + styles[val].id + '"';
+                return plugin.makeStyle(val);
             } else {
                 return '';
             }
+        }
+        
+        o.getMerge = function(columnName) {
+            var merged = this.instance.getMerge();
+            if(merged[columnName]) {
+                var mAcross = parseInt(merged[columnName][0])-1;
+                var mDown = parseInt(merged[columnName][1])-1;
+                
+                return plugin.makeMerge(mAcross, mDown);
+            }
+            
+            return '';
         }
 
         return o;
     }
 
     /**
+     * make XML for merge cells
+     * @param {type} Across
+     * @param {type} Down
+     * @returns {String}
+     */
+    plugin.makeMerge = function(Across, Down) {
+        var xmlProperties = "";
+        
+        if(Across) {
+            xmlProperties += ' ss:MergeAcross="' + Across + '"';
+        }
+        if(Down) {
+            xmlProperties += ' ss:MergeDown="' + Across + '"';
+        }
+        
+        return xmlProperties;
+    }
+    
+    /**
+     * make XML for style cells
+     * @param {type} style
+     * @returns {String}
+     */
+    plugin.makeStyle = function(style) {
+        if (! styles[style]) {
+            styles[style] = {
+                id: styleIndex++,
+                content: plugin.applyStyle(style),
+            }
+        }
+        return ' ss:StyleID="' + styles[style].id + '"';
+    }
+
+    /**
+     * Parse the CSS style
+     */
+    plugin.parseCSS = function(css) {
+       var result = [];
+       css = css.split(';');
+
+       for (var i = 0; i < css.length; i++) {
+           if (css[i].trim()) {
+               var t = css[i].split(':');
+               result[t[0].trim()] = t[1].trim();
+           }
+       }
+
+       return result;
+    }
+
+    /**
      * Extract the border style
      */
-    var parseBorderCSS = function(css) {
+    plugin.parseBorderCSS = function(css) {
         // Options
        var parsed = { 'size': null, 'color': null, 'style': null };
 
@@ -219,7 +353,7 @@ if (! jexcel && typeof(require) === 'function') {
            if (css[i].indexOf('px') >= 0) {
                parsed.size = parseInt(css[i]);
            } else if (css[i].indexOf('#') >= 0) {
-               parsed.color = rgbToHex(css[i]);
+               parsed.color = plugin.rgbToHex(css[i]);
            } else if (css[i] == 'dashed') {
                parsed.style = 'dashed';
            } else if (css[i] == 'dotted') {
@@ -235,8 +369,8 @@ if (! jexcel && typeof(require) === 'function') {
     /**
     * Apply the style onto excel format
     */
-   var applyStyle = function(css) {
-       css = parseCSS(css);
+   plugin.applyStyle = function(css) {
+       css = plugin.parseCSS(css);
 
        var style = [];
        var Font = [];
@@ -262,10 +396,10 @@ if (! jexcel && typeof(require) === 'function') {
        }
 
        if (css['color']) {
-           var v = rgbToHex(css['color'].toUpperCase().trim());
-           if (v) {
-	           Font.push('ss:Color="' + v + '"');
-	       }
+           var v = plugin.rgbToHex(css['color'].toUpperCase().trim());
+           if(v) {
+              Font.push('ss:Color="' + v + '"');
+           }
        }
 
        if (css['font-family']) {
@@ -278,7 +412,7 @@ if (! jexcel && typeof(require) === 'function') {
 
        if (css['text-align']) {
            var v = css['text-align'].charAt(0).toUpperCase() + css['text-align'].slice(1);
-            if (plugin.options.wrapText) {
+            if(plugin.options.wrapText) {
                 style.push('<Alignment ss:Horizontal="' + v + '" ss:Vertical="Center" ss:WrapText="1"/>');
             } else {
                 style.push('<Alignment ss:Horizontal="' + v + '" />');
@@ -324,11 +458,11 @@ if (! jexcel && typeof(require) === 'function') {
        var t = null;
 
        if (css['border']) {
-           a = parseBorderCSS(css['border']);
+           a = plugin.parseBorderCSS(css['border']);
        }
 
        if (css['border-top']) {
-           b = parseBorderCSS(css['border-top']);
+           b = plugin.parseBorderCSS(css['border-top']);
        } else {
            b = null;
        }
@@ -338,7 +472,7 @@ if (! jexcel && typeof(require) === 'function') {
        }
        
        if (css['border-bottom']) {
-           b = parseBorderCSS(css['border-bottom']);
+           b = plugin.parseBorderCSS(css['border-bottom']);
        } else {
            b = null;
        }
@@ -348,7 +482,7 @@ if (! jexcel && typeof(require) === 'function') {
        }
 
        if (css['border-left']) {
-           b = parseBorderCSS(css['border-left']);
+           b = plugin.parseBorderCSS(css['border-left']);
        } else {
            b = null;
        } 
@@ -358,7 +492,7 @@ if (! jexcel && typeof(require) === 'function') {
        }
 
        if (css['border-right']) {
-           b = parseBorderCSS(css['border-right']);
+           b = plugin.parseBorderCSS(css['border-right']);
        } else {
            b = null;
        }
@@ -372,22 +506,22 @@ if (! jexcel && typeof(require) === 'function') {
        }
 
        if (css['background-color']) {
-           var v = rgbToHex(css['background-color']);
-           if (v) {
-               style.push('<Interior ss:Color="'+v+'" ss:Pattern="Solid"/>');
+           var v = plugin.rgbToHex(css['background-color']);
+           if(v) {
+              style.push('<Interior ss:Color="'+v+'" ss:Pattern="Solid"/>');
            }
        }
-
+       
        return style.join('');
-    }
+   }
 
     /**
      * Create a new workbook
      */
-    var createWorkbook = function(o) {
+    plugin.createWorkbook = function(o) {
         var content = '';
-        for (var i = 0; i < o.worksheets.length; i++) {
-            content += o.worksheets[i].data;
+        for (var i = 0; i < worksheets.length; i++) {
+            content += worksheets[i].data;
         }
         var style = '';
         var keys = Object.keys(styles);
@@ -400,7 +534,7 @@ if (! jexcel && typeof(require) === 'function') {
     /**
      * Create a worksheet object
      */
-    var createWorksheet =  function(jexcelInstance) {
+    plugin.createWorksheet =  function(jexcelInstance) {
         // Create worksheet object
         var worksheet = helpers();
         worksheet.instance = jexcelInstance;
@@ -410,44 +544,35 @@ if (! jexcel && typeof(require) === 'function') {
         worksheet.getData();
 
         // Create container
-        return worksheet;
+        worksheets.push(worksheet);
     }
 
     /**
      * Generate excel file from jexcel
      */
-    return function(el, options) {
-        if (! options) {
-            options = {};
+    plugin.generate = function(filename, author) {
+        if (! filename) {
+            filename = 'jexcel';
         }
-        if (! options.filename) {
-            options.filename = 'export';
+        if (! author) {
+            author = 'Jexcel';
         }
-        if (! options.author) {
-            options.author = 'jspreadsheet.com';
-        }
-
-        // Index
-        styles = {};
-        styleIndex = 1;
-
-        // Worksheets
-        var worksheets = [];
 
         // Get worksheets
         if (Array.isArray(el.jexcel)) {
             for (var t = 0; t < el.jexcel.length; t++) {
-                worksheets.push(createWorksheet(el.jexcel[t]));
+                if(plugin.options.sheets == null || (Array.isArray(plugin.options.sheets) && plugin.options.sheets.indexOf(t)>-1) || plugin.options.sheets == t) {
+                    plugin.createWorksheet(el.jexcel[t]);
+                }
             }
         } else {
-            worksheets.push(createWorksheet(el.jexcel));
+            plugin.createWorksheet(el.jexcel);
         }
 
         // Workbook
-        var workbook = createWorkbook({
+        var workbook = plugin.createWorkbook({
             create: (new Date()).getTime(),
-            author: options.author,
-            worksheets: worksheets,
+            author: author,
         });
 
         // Blob
@@ -455,16 +580,16 @@ if (! jexcel && typeof(require) === 'function') {
 
         // IE Compatibility
         if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-            window.navigator.msSaveOrOpenBlob(blob, options.filename + '.xls');
+            window.navigator.msSaveOrOpenBlob(blob, filename + '.xls');
         } else {
             // Download element
             var pom = document.createElement('a');
             var url = URL.createObjectURL(blob);
             pom.href = url;
-            pom.setAttribute('download', options.filename + '.xls');
+            pom.setAttribute('download', filename + '.xls');
             document.body.appendChild(pom);
             pom.click();
             pom.parentNode.removeChild(pom);
         }
-    }
-})));
+    }(plugin.options.filename, plugin.options.author);
+});
