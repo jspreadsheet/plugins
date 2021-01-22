@@ -8,18 +8,16 @@ For more information:<br>
 <a href='https://jexcel.net/v7'>Jexcel Spreadsheet</a> Pro distribution.<br>
 <a href='https://bossanova.uk/jexcel/v4'>Jexcel Spreadsheet</a> CE distribution.<br><br>
 
-## plugin-jexcel-to-excel-export
+## plugins/download
 A plugin to create a XLS file from a jexcel spreadsheet.
+
+<br><br>
 
 <img src='https://jexcel.net/templates/default/img/jexcel-to-excel-plugin-icon.png' width='80' align='left'>
 
 <h2 style='margin-bottom: 0px;'>Jexcel Spreadsheet to Excel</h2>
 
-This plugin helps the export a XLS from a jexcel spreadsheet<br><br>
-
-The spreadsheet properties that can be changed using this plugin:
-
-<br>
+This plugin helps the export a XLS from a jexcel spreadsheet.<br><br>
 
 <h2>Author</h2>
 This is an official Jexcel Plugin.<br><br>
