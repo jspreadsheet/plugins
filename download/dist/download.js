@@ -10,10 +10,7 @@
 if (! jSuites && typeof(require) === 'function') {
     var jSuites = require('jsuites');
     var jsuites = jSuites;
-}
-
-if (! jexcel && typeof(require) === 'function') {
-    var jexcel = require('jexcel-pro');
+    var jexcel = null;
 }
 
 ;(function (global, factory) {
@@ -24,6 +21,7 @@ if (! jexcel && typeof(require) === 'function') {
 
     var styles = {};
     var styleIndex = 1;
+    var options = null;
 
     /**
      * Rgb to hex helpers
@@ -94,11 +92,11 @@ if (! jexcel && typeof(require) === 'function') {
     var helpers = function() {
         var o = {};
 
-        o.getData = function(options) {
+        o.getData = function() {
             // Create XML cell
             var get = function(o) {
                 if (! o.data && ! o.comments) {
-                    return '<Cell${o.styleId}${o.merge}/>';
+                    return `<Cell${o.styleId}${o.merge}/>`;
                 } else {
                     return `<Cell${o.styleId}${o.formula}${o.merge}><Data ss:Type="${o.type}">${o.data}</Data>${o.comments}</Cell>`;
                 }
@@ -120,11 +118,11 @@ if (! jexcel && typeof(require) === 'function') {
                             // Column name
                             o.data = (this.instance.options.nestedHeaders[j][i].title);
                             // Style
-                            o.styleId = plugin.makeStyle(options.styleHeader);
+                            o.styleId = makeStyle(options.styleHeader);
 
                             // Merge (colspan)
                             if (this.instance.options.nestedHeaders[j][i].colspan) {
-                                o.merge = plugin.makeMerge(parseInt(this.instance.options.nestedHeaders[j][i].colspan)-1);
+                                o.merge = makeMerge(parseInt(this.instance.options.nestedHeaders[j][i].colspan)-1);
                             }
 
                             // Type
@@ -145,17 +143,15 @@ if (! jexcel && typeof(require) === 'function') {
                     o.data = (this.instance.headers[ite_col].outerText||this.instance.headers[ite_col].innerHTML);
                     // Style
                     if (options.computedStyle) {
-                        o.styleId = plugin.makeStyle(window.getComputedStyle(this.instance.headers[ite_col], null).cssText);
+                        o.styleId = makeStyle(window.getComputedStyle(this.instance.headers[ite_col], null).cssText);
                     } else {
-                        o.styleId = plugin.makeStyle(options.styleHeader);
+                        o.styleId = makeStyle(options.styleHeader);
                     }
                     // Type
                     o.type = 'String';
-                    
                     // Add value
                     cols.push(get(o));
                 }
-                
                 rows.push('<Row>' + cols.join('') + '</Row>');
             }
 
@@ -170,17 +166,18 @@ if (! jexcel && typeof(require) === 'function') {
                     o.columnName = jexcel.helpers.getColumnNameFromCoords(i, j);
                     // Set data;
                     o.data = this.data[j][i];
-                    o.data = o.data.replace(/(?:\r\n|\r|\n)/g, '&#10;');
+                    //o.data = o.data.replace(/(?:\r\n|\r|\n)/g, '&#10;');
                     // Get comments
                     o.comments = this.getComments(o.columnName);
                     // Style
-                    o.styleId = this.getStyle(o.columnName, i, j, options);
+                    o.styleId = this.getStyle(o.columnName, i, j);
                     // Merge
                     o.merge = this.getMerge(o.columnName);
                     // Type
                     if (this.instance.options.columns[i].type == 'calendar') {
                         o.styleId = ' ss:StyleID="calendar"';
                         o.type = 'DateTime';
+                        o.data = o.data.replace(' ', 'T');
                     } else if (this.instance.options.columns[i].type == 'checkbox' || this.instance.options.columns[i].type == 'radio') {
                         o.type = 'String'
                     } else if (jSuites.isNumeric(o.data)) {
@@ -255,7 +252,7 @@ if (! jexcel && typeof(require) === 'function') {
             }
         }
 
-        o.getStyle = function(columnName, i, j, options) {
+        o.getStyle = function(columnName, i, j) {
             if (this.instance.records[j][i].element) {
                 if (options.computedStyle) {
                     var val = window.getComputedStyle(this.instance.records[j][i].element, null).cssText;
@@ -266,7 +263,7 @@ if (! jexcel && typeof(require) === 'function') {
                 var val = this.instance.getStyle(columnName);
             }
             if (val) {
-                return plugin.makeStyle(val);
+                return makeStyle(val);
             } else {
                 return '';
             }
@@ -313,7 +310,7 @@ if (! jexcel && typeof(require) === 'function') {
         if (! styles[style]) {
             styles[style] = {
                 id: styleIndex++,
-                content: plugin.applyStyle(style),
+                content: applyStyle(style),
             }
         }
         return ' ss:StyleID="' + styles[style].id + '"';
@@ -392,12 +389,12 @@ if (! jexcel && typeof(require) === 'function') {
 
        if (css['text-align']) {
            var v = css['text-align'].charAt(0).toUpperCase() + css['text-align'].slice(1);
-            if (plugin.options.wrapText) {
+            if (options.wrapText) {
                 style.push('<Alignment ss:Horizontal="' + v + '" ss:Vertical="Center" ss:WrapText="1"/>');
             } else {
                 style.push('<Alignment ss:Horizontal="' + v + '" />');
             }
-       } else if(plugin.options.wrapText) {
+       } else if (options.wrapText) {
            style.push('<Alignment ss:Vertical="Center" ss:WrapText="1"/>');
        }
 
@@ -513,14 +510,14 @@ if (! jexcel && typeof(require) === 'function') {
     /**
      * Create a worksheet object
      */
-    var createWorksheet =  function(jexcelInstance, options) {
+    var createWorksheet =  function(jexcelInstance) {
         // Create worksheet object
         var worksheet = helpers();
         worksheet.instance = jexcelInstance;
         worksheet.name = jexcelInstance.options.worksheetName.replace(' ', '');
 
         // Execute
-        worksheet.getData(options);
+        worksheet.getData();
 
         // Create container
         return worksheet;
@@ -529,32 +526,45 @@ if (! jexcel && typeof(require) === 'function') {
     /**
      * Generate excel file from jexcel
      */
-    return function(el, options) {
+    return function(el, o) {
+        // Set default value
+        if (! o) {
+           o = {};
+        }
+
         /**
          * Generate XLS file from jexcel
          */
         var defaultOptions = {
              filename: 'export',
              author: 'jspreadsheet.com',
-             sheets: null, // Specifics sheet to download => null = all, array specifics index of sheets, int specific index of sheet
+             sheets: null,
              header: false,
              computedStyle: false,
              styleHeader: 'border: 1px solid #cccccc;background-color: #f3f3f3;text-align: center;',
-             wrapText: false
-        }
-
-        // Set default value
-        if (! options) {
-           options = {};
+             wrapText: false,
+             version: true,
         }
 
         for (var property in defaultOptions) {
-            if (!  options.hasOwnProperty(property) || options[property] == null) {
-                options[property] = defaultOptions[property];
+            if (!  o.hasOwnProperty(property) || o[property] == null) {
+                o[property] = defaultOptions[property];
             }
         }
 
-        // Index
+        // New options
+        options = o;
+
+        // Just case jexcel has not been loaded yet
+        if (! jexcel && typeof(require) === 'function') {
+            if (options.version == true) {
+                jexcel = require('jexcel-pro');
+            } else {
+                jexcel = require('jexcel');
+            }
+        }
+
+        // Reset
         styles = {};
         styleIndex = 1;
 
@@ -564,10 +574,10 @@ if (! jexcel && typeof(require) === 'function') {
         // Get worksheets
         if (Array.isArray(el.jexcel)) {
             for (var t = 0; t < el.jexcel.length; t++) {
-                worksheets.push(createWorksheet(el.jexcel[t], options));
+                worksheets.push(createWorksheet(el.jexcel[t]));
             }
         } else {
-            worksheets.push(createWorksheet(el.jexcel, options));
+            worksheets.push(createWorksheet(el.jexcel));
         }
 
         // Workbook
