@@ -11,15 +11,13 @@ For more information:<br>
 ## plugins/download
 A plugin to create a XLS file from a jexcel spreadsheet.
 
+<br><br>
+
 <img src='https://jexcel.net/templates/default/img/jexcel-to-excel-plugin-icon.png' width='80' align='left'>
 
 <h2 style='margin-bottom: 0px;'>Jexcel Spreadsheet to Excel</h2>
 
-This plugin helps the export a XLS from a jexcel spreadsheet<br><br>
-
-The spreadsheet properties that can be changed using this plugin:
-
-<br>
+This plugin helps the export a XLS from a jexcel spreadsheet.<br><br>
 
 <h2>Author</h2>
 This is an official Jexcel Plugin.<br><br>
