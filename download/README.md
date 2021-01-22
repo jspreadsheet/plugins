@@ -8,7 +8,7 @@ For more information:<br>
 <a href='https://jexcel.net/v7'>Jexcel Spreadsheet</a> Pro distribution.<br>
 <a href='https://bossanova.uk/jexcel/v4'>Jexcel Spreadsheet</a> CE distribution.<br><br>
 
-## plugin-jexcel-to-excel-export
+## plugins/download
 A plugin to create a XLS file from a jexcel spreadsheet.
 
 <img src='https://jexcel.net/templates/default/img/jexcel-to-excel-plugin-icon.png' width='80' align='left'>
