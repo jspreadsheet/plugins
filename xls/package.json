@@ -1,5 +1,5 @@
 {
-    "name": "@jspreadsheet/download",
+    "name": "@jspreadsheet/xls",
     "title": "Jspreadsheet plugins: export to xls file.",
     "description": "Convert a spreadsheet content to XSL.",
     "author": {
@@ -22,6 +22,6 @@
         "data-grid",
         "data-spreadsheet"
     ],
-    "main": "dist/download.js",
-    "version": "1.1.0"
+    "main": "dist/index.js",
+    "version": "1.5.0"
 }

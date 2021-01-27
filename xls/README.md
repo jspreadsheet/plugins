@@ -8,7 +8,7 @@ For more information:<br>
 <a href='https://jexcel.net/v7'>Jexcel Spreadsheet</a> Pro distribution.<br>
 <a href='https://bossanova.uk/jexcel/v4'>Jexcel Spreadsheet</a> CE distribution.<br><br>
 
-## plugins/download
+## plugins/xls
 A plugin to create a XLS file from a jexcel spreadsheet.
 
 <br><br>
@@ -50,10 +50,10 @@ jexcel(document.getElementById('spreadsheet'), {
 </pre>
 
 <h3>Example using NPM</h3>
-% npm install @jspreadsheet/download
+% npm install @jspreadsheet/xls
 
 <pre class="prettyprint linenums">
-import download from '@jspreadsheet/download';
+import download from '@jspreadsheet/xls';
 
 download(document.getElementById('spreadsheet'), {
     filename: 'file.xsl',
