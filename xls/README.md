@@ -6,7 +6,6 @@ jExcel, a lightweight Vanilla JavaScript plugin, can help you create exceptional
 
 For more information:<br>
 <a href='https://jexcel.net/v7'>Jexcel Spreadsheet</a> Pro distribution.<br>
-<a href='https://bossanova.uk/jexcel/v4'>Jexcel Spreadsheet</a> CE distribution.<br><br>
 
 ## plugins/xls
 A plugin to create a XLS file from a jexcel spreadsheet.
