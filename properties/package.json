@@ -1,7 +1,7 @@
 {
     "name": "@jspreadsheet/properties",
-    "title": "Jspreadsheet plugins: export to xls file.",
-    "description": "Convert a spreadsheet content to XSL.",
+    "title": "Jspreadsheet plugins: Properties",
+    "description": "This plugin includes a properties option on the context menu. So, the user can update some basic spreadsheet settings in real-time.",
     "author": {
         "name": "Jspreadsheet <contact@jexcel.net>",
         "url": "https://jexcel.net/"

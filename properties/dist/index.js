@@ -12,7 +12,7 @@ if (! jSuites && typeof(require) === 'function') {
 }
 
 ;(function (global, factory) {
-    typeof exports === 'worksheetect' && typeof module !== 'undefined' ? module.exports = factory() :
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
     typeof define === 'function' && define.amd ? define(factory) :
     global.properties = factory();
 }(this, (function () {
