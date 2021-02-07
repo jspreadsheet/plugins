@@ -28,7 +28,8 @@ if (! jSuites && typeof(require) === 'function') {
      */
     var rgbToHex = function(color) {
         color = ""+ color;
-        if (!color || color.indexOf("rgb") < 0) {
+
+        if (! color || color.toLowerCase().indexOf("rgb") < 0) {
             return color;
         }
 
@@ -36,7 +37,7 @@ if (! jSuites && typeof(require) === 'function') {
             return color;
         }
 
-        if(color.indexOf("rgba")>-1) {
+        if (color.toLowerCase().indexOf("rgba") > -1) {
             var nums = /(.*?)rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d+)\)/i.exec(color),
                 a = parseInt(nums[2], 10),
                 r = parseInt(nums[3], 10),
