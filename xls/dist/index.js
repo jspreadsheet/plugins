@@ -525,12 +525,16 @@ if (! jSuites && typeof(require) === 'function') {
     }
 
     /**
-     * Generate excel file from jexcel
+     * Generate excel file from the spreadsheet
      */
-    return function(el, o) {
+    return function(el, o, instance) {
         // Set default value
         if (! o) {
            o = {};
+        }
+
+        if (instance) {
+            jexcel = instance;
         }
 
         /**
