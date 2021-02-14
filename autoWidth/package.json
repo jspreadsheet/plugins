@@ -1,0 +1,29 @@
+{
+    "name": "@jspreadsheet/autowidth",
+    "title": "Jspreadsheet plugins: auto width columns.",
+    "description": "Auto width columns of jexcel.",
+    "author": {
+        "name": "Guillaume Bonnaire <contact@gbonnaire.fr>",
+        "url": "https://repo.gbonnaire.fr"
+    },
+    "repository": {
+        "type" : "git",
+        "url" : "https://github.com/jspreadsheet/plugins.git"
+    },
+    "keywords": [
+        "autowidth",
+        "width",
+        "spreadsheet",
+        "spreadsheets",
+        "tables",
+        "table",
+        "excel",
+        "grid",
+        "grid-editor",
+        "data-table",
+        "data-grid",
+        "data-spreadsheet"
+    ],
+    "main": "dist/index.js",
+    "version": "1.0.0"
+}
