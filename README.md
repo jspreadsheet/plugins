@@ -1,1 +1,1 @@
-# Free Plugins for Jexcel Pro
+# Free Plugins for Jspreadsheet Basic and Pro
