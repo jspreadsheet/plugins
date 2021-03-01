@@ -25,7 +25,7 @@ This is an official Jspreadsheet Plugin.<br><br>
 MIT distribution<br><br>
 
 <h2>Example using the browser</h2>
-A following working example can be found <a href='https://jspreadsheet.com/v7/plugins/exporting-to-xls'>here</a><br><br>
+A following working example can be found <a href='https://jspreadsheet.com/plugins/exporting-to-xls'>here</a><br><br>
 
 <pre class="prettyprint linenums">
 &#60;html>
