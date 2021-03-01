@@ -1,7 +1,7 @@
 {
     "name": "@jspreadsheet/xls",
     "title": "Jspreadsheet plugins: export to xls file.",
-    "description": "Convert a spreadsheet content to XSL.",
+    "description": "Convert a spreadsheet content to XLS.",
     "author": {
         "name": "Jspreadsheet <contact@jspreadsheet.com>",
         "url": "https://jspreadsheet.com/"
@@ -11,6 +11,8 @@
         "url" : "https://github.com/jspreadsheet/plugins.git"
     },
     "keywords": [
+        "jspreadsheet",
+        "jexcel",
         "spreadsheet",
         "spreadsheets",
         "tables",
@@ -23,5 +25,5 @@
         "data-spreadsheet"
     ],
     "main": "dist/index.js",
-    "version": "1.6.0"
+    "version": "1.6.1"
 }
