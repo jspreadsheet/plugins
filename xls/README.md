@@ -1,6 +1,6 @@
 <h1>Jspreadsheet Plugins</h1>
 
-## About Jspreadsheet
+## About Jspreadsheet 
 
 Jspreadsheet, a lightweight Vanilla JavaScript plugin, can help you create exceptional web-based interactive tables and spreadsheets. Compatible with most widely-used spreadsheet softwares, it offers users an unrivalled Excel-like user experience. It also works well with prominent modern frameworks and flexibly utilizes a large collection of events, extensions and configurations to meet different application requirements. Impress your clients with a better user experience and a great dynamic interactive data management tool. The jspreadsheet extensions can be used to enhance the native capabilities.
 
