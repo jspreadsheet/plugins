@@ -14,7 +14,7 @@ A plugin to create a XLS file from a Jspreadsheet worksheet.
 
 <img src='https://jspreadsheet.com/templates/default/img/export-plugin-icon.png' width='80' align='left'>
 
-<h2 style='margin-bottom: 0px;'>Jexcel Spreadsheet to Excel</h2>
+<h2 style='margin-bottom: 0px;'>JSpreadsheet to XLS</h2>
 
 This plugin helps the export a XLS from a jexcel spreadsheet.<br><br>
 
