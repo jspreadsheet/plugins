@@ -2,12 +2,12 @@
 
 ## About Jspreadsheet
 
-Jspreadsheet, a lightweight Vanilla JavaScript plugin, can help you create exceptional web-based interactive tables and spreadsheets. Compatible with most widely-used spreadsheet software, it offers users an unrivalled Excel-like user experience. It also works well with prominent modern frameworks and flexibly utilizes a large collection of events, extensions and configurations to meet different application requirements. Impress your clients with a better user experience and a great dynamic interactive data management tool. The jexcel extensions can be used to enhance the native capabilities.
+Jspreadsheet, a lightweight Vanilla JavaScript plugin, can help you create exceptional web-based interactive tables and spreadsheets. Compatible with most widely-used spreadsheet software, it offers users an unrivalled Excel-like user experience. It also works well with prominent modern frameworks and flexibly utilizes a large collection of events, extensions and configurations to meet different application requirements. Impress your clients with a better user experience and a great dynamic interactive data management tool. The jspreadsheet extensions can be used to enhance the native capabilities.
 
-Visit the jexcel <a href='https://jexcel.net/v7'>spreadsheet</a> website for more information.<br><br>
+Visit the jspreadsheet <a href='https://jspreadsheet.com/v7'>spreadsheet</a> website for more information.<br><br>
 
 ## plugin-spreadsheet-properties
-A plugin to edit the jexcel spreadsheet's main properties on the fly.
+A plugin to edit the jspreadsheet worksheets properties on the fly.
 
 <img src='https://jspreadsheet.com/templates/default/img/properties-spreadsheet-plugin-icon.png' width='80' align='left'>
 
@@ -47,13 +47,13 @@ A following working example can be found <a href='https://jspreadsheet.com/plugi
 <pre class="prettyprint linenums">
 &#60;html>
 &#60;script src="https://jspreadsheet.com/v7/jspreadsheet.js">&#60;/script>
-&#60;link rel="stylesheet" href="https://jexcel.net/v7/jexcel.css" type="text/css" />
+&#60;link rel="stylesheet" href="https://jspreadsheet.com/v7/jspreadsheet.css" type="text/css" />
 
 &#60;script src="https://jsuites.net/v4/jsuites.js">&#60;/script>
 &#60;link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
 &#60;link rel="stylesheet" href="https://jsuites.net/v4/jsuites.layout.css" type="text/css" />
 
-&#60;script src="https://jexcel.net/plugins/jexcel.properties.js">&#60;/script>
+&#60;script src="https://jspreadsheet.com/v7/plugins/properties.js">&#60;/script>
 
 &#60;div id="spreadsheet">&#60;/div>
 

@@ -3,8 +3,8 @@
     "title": "Jspreadsheet plugins: export to xls file.",
     "description": "Convert a spreadsheet content to XSL.",
     "author": {
-        "name": "Jspreadsheet <contact@jexcel.net>",
-        "url": "https://jexcel.net/"
+        "name": "Jspreadsheet <contact@jspreadsheet.com>",
+        "url": "https://jspreadsheet.com/"
     },
     "repository": {
         "type" : "git",

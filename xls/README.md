@@ -2,7 +2,7 @@
 
 ## About Jspreadsheet
 
-Jspreadsheet, a lightweight Vanilla JavaScript plugin, can help you create exceptional web-based interactive tables and spreadsheets. Compatible with most widely-used spreadsheet softwares, it offers users an unrivalled Excel-like user experience. It also works well with prominent modern frameworks and flexibly utilizes a large collection of events, extensions and configurations to meet different application requirements. Impress your clients with a better user experience and a great dynamic interactive data management tool. The jexcel extensions can be used to enhance the native capabilities.
+Jspreadsheet, a lightweight Vanilla JavaScript plugin, can help you create exceptional web-based interactive tables and spreadsheets. Compatible with most widely-used spreadsheet softwares, it offers users an unrivalled Excel-like user experience. It also works well with prominent modern frameworks and flexibly utilizes a large collection of events, extensions and configurations to meet different application requirements. Impress your clients with a better user experience and a great dynamic interactive data management tool. The jspreadsheet extensions can be used to enhance the native capabilities.
 
 For more information:<br>
 <a href='https://jspreadsheet.com/v7'>Jspreadsheet</a> Pro distribution.<br>
@@ -16,7 +16,7 @@ A plugin to create a XLS file from a Jspreadsheet worksheet.
 
 <h2 style='margin-bottom: 0px;'>JSpreadsheet to XLS</h2>
 
-This plugin helps the export a XLS from a jexcel spreadsheet.<br><br>
+This plugin helps the export a XLS from a jspreadsheet worksheet.<br><br>
 
 <h2>Author</h2>
 This is an official Jspreadsheet Plugin.<br><br>
@@ -25,7 +25,7 @@ This is an official Jspreadsheet Plugin.<br><br>
 MIT distribution<br><br>
 
 <h2>Example using the browser</h2>
-A following working example can be found <a href='https://jexcel.net/plugins/exporting-to-xls'>here</a><br><br>
+A following working example can be found <a href='https://jspreadsheet.com/v7/plugins/exporting-to-xls'>here</a><br><br>
 
 <pre class="prettyprint linenums">
 &#60;html>

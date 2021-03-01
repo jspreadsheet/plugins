@@ -3,8 +3,8 @@
     "title": "Jspreadsheet plugins: Properties",
     "description": "This plugin includes a properties option on the context menu. So, the user can update some basic spreadsheet settings in real-time.",
     "author": {
-        "name": "Jspreadsheet <contact@jexcel.net>",
-        "url": "https://jexcel.net/"
+        "name": "Jspreadsheet <contact@jspreadsheet.com>",
+        "url": "https://jspreadsheet.com/"
     },
     "repository": {
         "type" : "git",
