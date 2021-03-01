@@ -5,14 +5,14 @@
 Jspreadsheet, a lightweight Vanilla JavaScript plugin, can help you create exceptional web-based interactive tables and spreadsheets. Compatible with most widely-used spreadsheet softwares, it offers users an unrivalled Excel-like user experience. It also works well with prominent modern frameworks and flexibly utilizes a large collection of events, extensions and configurations to meet different application requirements. Impress your clients with a better user experience and a great dynamic interactive data management tool. The jexcel extensions can be used to enhance the native capabilities.
 
 For more information:<br>
-<a href='https://jexcel.net/v7'>Jspreadsheet</a> Pro distribution.<br>
+<a href='https://jspreadsheet.com/v7'>Jspreadsheet</a> Pro distribution.<br>
 
 ## plugins/xls
 A plugin to create a XLS file from a Jspreadsheet worksheet.
 
 <br><br>
 
-<img src='https://jexcel.net/templates/default/img/jexcel-to-excel-plugin-icon.png' width='80' align='left'>
+<img src='https://jspreadsheet.com/templates/default/img/export-plugin-icon.png' width='80' align='left'>
 
 <h2 style='margin-bottom: 0px;'>Jexcel Spreadsheet to Excel</h2>
 
@@ -29,16 +29,16 @@ A following working example can be found <a href='https://jexcel.net/plugins/exp
 
 <pre class="prettyprint linenums">
 &#60;html>
-&#60;script src="https://jexcel.net/v7/jexcel.js">&#60;/script>
-&#60;script src="https://jexcel.net/v7/jsuites.js">&#60;/script>
-&#60;link rel="stylesheet" href="https://jexcel.net/v7/jexcel.css" type="text/css" />
-&#60;link rel="stylesheet" href="https://jexcel.net/v7/jsuites.css" type="text/css" />
+&#60;script src="https://jspreadsheet.com/v7/jspreadsheet.js">&#60;/script>
+&#60;link rel="stylesheet" href="https://jspreadsheet.com/v7/jspreadsheet.css" type="text/css" />
+&#60;script src="https://jsuites.net/v4/jsuites.js">&#60;/script>
+&#60;link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
 
-&#60;script src="https://jexcel.net/v7/plugins/download.js">&#60;/script>
+&#60;script src="https://jspreadsheet.com/v7/plugins/download.js">&#60;/script>
 
 &#60;div id="spreadsheet">&#60;/div>
 
-&#60;input type='button' value='Download' onclick="jexcel.download(document.getElementById('spreadsheet'));">
+&#60;input type='button' value='Download' onclick="jspreadsheet.download(document.getElementById('spreadsheet'));">
 
 &#60;script>
 jexcel(document.getElementById('spreadsheet'), {
