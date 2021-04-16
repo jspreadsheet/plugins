@@ -1,5 +1,5 @@
 
-## JExcel Plugin : Persistance Flag
+## JSpreadsheet Plugin : Persistance Flag
 
  Replace Notification persistance and cloud by discret flag on toolbar
 
@@ -20,7 +20,7 @@ Source available on GitHub : [GitHub](https://github.com/Guillaume-Bo/jexcel-plu
 
 ### Dependencies
 
-- [JExcel Pro v7](https://www.jexcel.net/v7)  
+- [JSpreadsheet Pro v7](https://www.jspreadsheet.net/v7)  
 
 ### Options of plugin
 

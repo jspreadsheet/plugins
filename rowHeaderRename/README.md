@@ -1,4 +1,4 @@
-## JExcel Plugin : Row Header rename
+## JSpreadsheet Plugin : Row Header rename
 
  Row Header rename is a plugin for rename row header (Index) with custom name
 
@@ -19,7 +19,7 @@ Source available on GitHub : [GitHub](https://github.com/Guillaume-Bo/jexcel-plu
 
 ### Dependencies
 
-- [JExcel Pro v7](https://www.jexcel.net/v7)  
+- [JSpreadsheet Pro v7](https://www.jspreadsheet.net/v7)  
 
 ### Options of plugin
 

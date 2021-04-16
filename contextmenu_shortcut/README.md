@@ -1,6 +1,6 @@
-## JExcel Plugin : Contextmenu shortcut
+## JSpreadsheet Plugin : Contextmenu shortcut
 
-ContextMenu Shortcut is a plugin to improve the contextMenu of JExcel Pro. It allows you to change the base of shortcuts depending on whether you are on a Mac or a Windows. It also allows you to add icons for each menu item.
+ContextMenu Shortcut is a plugin to improve the contextMenu of JSpreadsheet Pro. It allows you to change the base of shortcuts depending on whether you are on a Mac or a Windows. It also allows you to add icons for each menu item.
 
 ![preview](https://user-images.githubusercontent.com/52194475/91465865-a0dc1780-e88e-11ea-8a41-1ed1f5275c95.png)
 
@@ -18,7 +18,7 @@ Source available on GitHub : [GitHub](https://github.com/Guillaume-Bo/jexcel-plu
 
 ### Dependencies
 
-- [JExcel Pro v7](https://www.jexcel.net/v7)
+- [JSpreadsheet Pro v7](https://www.jspreadsheet.net/v7)
 
 - With default options of plugin, you should use [Material Design icons](https://material.io/resources/icons/). But, if you want, you can use fontawesome with editing all icons
 

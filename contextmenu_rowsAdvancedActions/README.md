@@ -1,4 +1,4 @@
-## JExcel Plugin : Contextmenu rows advanced actions
+## JSpreadsheet Plugin : Contextmenu rows advanced actions
 
 ContextMenu rows advanced actions is a plugin for add new items in contextMenu of JExcel Pro for manage rows. 
 
@@ -18,7 +18,7 @@ Source available on GitHub : [GitHub](https://github.com/Guillaume-Bo/jexcel-plu
 
 ### Dependencies
 
-- [JExcel Pro v7](https://www.jexcel.net/v7)
+- [JSpreadsheet Pro v7](https://www.jspreadsheet.net/v7)
 
 - With default options of plugin, you should use [Material Design icons](https://material.io/resources/icons/). 
 
