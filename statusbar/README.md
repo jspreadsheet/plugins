@@ -1,4 +1,4 @@
-## JExcel Plugin : Status bar
+## JSpreadsheet Plugin : Status bar
 
  Status bar is a plugin for add a status bar on bottom of the sheet like Excel. On this status bar you can add new row with button, and show information on selection (Range selected, Formulas, etc.)
 
@@ -19,7 +19,7 @@ Source available on GitHub : [GitHub](https://github.com/Guillaume-Bo/jexcel-plu
 
 ### Dependencies
 
-- [JExcel Pro v7](https://www.jexcel.net/v7)  
+- [JSpreadsheet Pro v7](https://www.jspreadsheet.net/v7)  
 
 ### Options of plugin
 

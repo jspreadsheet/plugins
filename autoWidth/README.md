@@ -1,4 +1,4 @@
-## JExcel Plugin : auto Width
+## JSpreadsheet Plugin : auto Width
 
 The autoWidth plugin add possibility to set auto width of columns.
 
@@ -23,7 +23,7 @@ Source available on GitHub : [GitHub](https://github.com/Guillaume-Bo/jexcel-plu
 
 ### Dependencies
 
-- [JExcel Pro v7](https://www.jexcel.net/v7) 
+- [JSpreadsheet Pro v7](https://www.jspreadsheet.net/v7) 
 
 if you have a lot a plugins, add on the top autoWidth
 ### Get started

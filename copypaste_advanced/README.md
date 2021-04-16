@@ -1,6 +1,6 @@
-## JExcel Plugin : Copy Paste Advanced
+## JSpreadsheet Plugin : Copy Paste Advanced
 
-The Copypaste_advanced plugin improves the copy paste functionality of JExcel. It works even if access to the clipboard is denied or in error.
+The Copypaste_advanced plugin improves the copy paste functionality of JSpreadsheet. It works even if access to the clipboard is denied or in error.
 
 ![preview](https://user-images.githubusercontent.com/52194475/91473978-ece08980-e899-11ea-9a89-ad0f8bc89d42.png)
 
@@ -18,7 +18,7 @@ Source available on GitHub : [GitHub](https://github.com/Guillaume-Bo/jexcel-plu
 
 - Add items cut, copy, paste on default toolbar
 - Add item paste on default context menu when it is not present
-- Upgrade copy/paste of JExcel when clipboard access is denied
+- Upgrade copy/paste of JSpreadsheet when clipboard access is denied
 - Override copy methods of JExcel
 - Can copy scale like Excel
 - Work on Mobile
@@ -29,7 +29,7 @@ Source available on GitHub : [GitHub](https://github.com/Guillaume-Bo/jexcel-plu
 
 ### Dependencies
 
-- [JExcel Pro v7](https://www.jexcel.net/v7) 
+- [JSpreadsheet Pro v7](https://www.jspreadsheet.net/v7) 
 
 ### Options of plugin
 
