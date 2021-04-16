@@ -1,1 +1,1 @@
-# Free Plugins for Jspreadsheet Basic and Pro
+# Free and Premium Plugins for Jspreadsheet
