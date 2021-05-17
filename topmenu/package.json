@@ -1,7 +1,7 @@
 {
-    "name": "@jspreadsheet/statusbar",
-    "title": "Jspreadsheet plugins: status bar.",
-    "description": "add status bar with information on select range.",
+    "name": "@jspreadsheet/topmenu",
+    "title": "Jspreadsheet plugins: add topmenu bar on sheet of jSpreadsheet.",
+    "description": "Jspreadsheet plugins: add topmenu bar on sheet of jSpreadsheet",
     "author": {
         "name": "Guillaume Bonnaire <contact@gbonnaire.fr>",
         "url": "https://repo.gbonnaire.fr"
@@ -11,8 +11,11 @@
         "url" : "https://github.com/GBonnaire/jspreadsheet-plugins-and-editors.git"
     },
     "keywords": [
-        "statusbar",
-        "formula",
+        "menu",
+        "topmenu",
+        "menubar",
+        "file",
+        "edit",
         "spreadsheet",
         "spreadsheets",
         "tables",
@@ -25,5 +28,5 @@
         "data-spreadsheet"
     ],
     "main": "index.js",
-    "version": "1.3.1"
+    "version": "1.0.1"
 }

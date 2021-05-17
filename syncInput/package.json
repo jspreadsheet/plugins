@@ -1,7 +1,7 @@
 {
-    "name": "@jspreadsheet/statusbar",
-    "title": "Jspreadsheet plugins: status bar.",
-    "description": "add status bar with information on select range.",
+    "name": "@jspreadsheet/syncinput",
+    "title": "Jspreadsheet plugins: sync Input.",
+    "description": "synchronisation input text with data write in jspreadsheet",
     "author": {
         "name": "Guillaume Bonnaire <contact@gbonnaire.fr>",
         "url": "https://repo.gbonnaire.fr"
@@ -11,8 +11,8 @@
         "url" : "https://github.com/GBonnaire/jspreadsheet-plugins-and-editors.git"
     },
     "keywords": [
-        "statusbar",
-        "formula",
+        "syncInput",
+        "input",
         "spreadsheet",
         "spreadsheets",
         "tables",
@@ -25,5 +25,5 @@
         "data-spreadsheet"
     ],
     "main": "index.js",
-    "version": "1.3.1"
+    "version": "1.0.0"
 }

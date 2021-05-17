@@ -1,5 +1,5 @@
 {
-    "name": "@jspreadsheet/persistanceFlag",
+    "name": "@jspreadsheet/persistanceflag",
     "title": "Jspreadsheet plugins: change persistance flag.",
     "description": "Change persistance flag and add this flag into toolbar.",
     "author": {
@@ -8,7 +8,7 @@
     },
     "repository": {
         "type" : "git",
-        "url" : "https://github.com/jspreadsheet/plugins.git"
+        "url" : "https://github.com/GBonnaire/jspreadsheet-plugins-and-editors.git"
     },
     "keywords": [
         "persistance",
@@ -24,6 +24,6 @@
         "data-grid",
         "data-spreadsheet"
     ],
-    "main": "dist/index.js",
-    "version": "1.4.0"
+    "main": "index.js",
+    "version": "1.4.1"
 }
