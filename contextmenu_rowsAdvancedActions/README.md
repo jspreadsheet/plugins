@@ -1,24 +1,22 @@
-## JSpreadsheet Plugin : Contextmenu rows advanced actions
+## jSpreadsheet Plugin : Contextmenu rows advanced actions
 
-ContextMenu rows advanced actions is a plugin for add new items in contextMenu of JExcel Pro for manage rows. 
+ContextMenu rows advanced actions is a plugin for add new items in contextMenu of jSpreadsheet Pro for manage rows. 
 
 ![preview](https://user-images.githubusercontent.com/52194475/102090914-5b802d80-3e1e-11eb-9fe6-572cea5eecae.png)
 
 This plugin is **Free**
 
-## Demo
+## What is jSpreadsheet ?
 
-Demo available on [Demo of plugin](https://demo.gbonnaire.fr/jExcel/plugin.contextmenu.php)
+jSpreadsheet, a lightweight Vanilla JavaScript plugin, can help you create exceptional web-based interactive tables and spreadsheets. Compatible with most widely-used spreadsheet software, such as Excel or Google Spreadsheet, it offers users an unrivalled Excel-like user experience. It also works well with prominent modern frameworks and flexibly utilizes a large collection of events, extensions and configurations to meet different application requirements. Impress your clients with a better user experience and a great dynamic interactive data management tool.
 
-## GitHub
-
-Source available on GitHub : [GitHub](https://github.com/Guillaume-Bo/jexcel-plugins-and-editors/tree/master/plugins/contextmenu_rowsAdvancedActions)
+- [Download jSpreadsheet Pro](https://www.jspreadsheet.com) 
 
 ## Documentation
 
 ### Dependencies
 
-- [JSpreadsheet Pro v7](https://www.jspreadsheet.net/v7)
+- [jSpreadsheet Pro v7](https://www.jspreadsheet.com/v7)
 
 - With default options of plugin, you should use [Material Design icons](https://material.io/resources/icons/). 
 
@@ -94,18 +92,18 @@ you can defined on translation global to replace var <code>text_XXXX</code> by <
 
 Header on page
 ```HTML
-<script src="https://jexcel.net/v7/jexcel.js"></script>
-<script src="https://jexcel.net/v7/jsuites.js"></script>
-<link rel="stylesheet" href="https://jexcel.net/v7/jsuites.css" type="text/css" />
-<link rel="stylesheet" href="https://jexcel.net/v7/jexcel.css" type="text/css" />
+<script src="https://jspreadsheet.com/v7/jspreadsheet.js"></script>
+<script src="https://jspreadsheet.com/v7/jsuites.js"></script>
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jsuites.css" type="text/css" />
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jspreadsheet.css" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 
-<script src="/path/to/jexcel.contextmenu_rowAdvancedActions.js"></script>
+<script src="/path/to/contextmenu_rowAdvancedActions.min.js"></script>
 ```
 
-Initialize plugin on JExcel
+Initialize plugin on jSpreadsheet
 ```JavaScript
-jexcel(document.getElementById('spreadsheet'), {
+jSpreadsheet(document.getElementById('spreadsheet'), {
 	...
 	plugins: [
       ...
@@ -122,13 +120,13 @@ jexcel(document.getElementById('spreadsheet'), {
 You can use this CDN link
 
 ```HTML
-<script src="https://cdn.jsdelivr.net/gh/Guillaume-Bo/jexcel-plugins-and-editors@latest/plugins/contextmenu_rowsAdvancedActions/jexcel.contextmenu_rowsAdvancedActions.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/GBonnaire/jspreadsheet-plugins-and-editors@latest/plugins/dist/contextmenu_rowsAdvancedActions.min.js"></script>
 ```
 
 ## NPM
-Coming soon (March 2021)
+npm install @jspreadsheet/contextmenu_rowsadvancedactions
 ```javascript
-import download from '@jspreadsheet/contextmenu_rowAdvancedActions';
+import jss_contextmenu_rowAdvancedActions from '@jspreadsheet/contextmenu_rowsadvancedactions';
 ```
 
 ## Copyright and license

@@ -1,24 +1,22 @@
-## JSpreadsheet Plugin : Contextmenu shortcut
+## jSpreadsheet Plugin : Contextmenu shortcut
 
-ContextMenu Shortcut is a plugin to improve the contextMenu of JSpreadsheet Pro. It allows you to change the base of shortcuts depending on whether you are on a Mac or a Windows. It also allows you to add icons for each menu item.
+ContextMenu Shortcut is a plugin to improve the contextMenu of jSpreadsheet Pro. It allows you to change the base of shortcuts depending on whether you are on a Mac or a Windows. It also allows you to add icons for each menu item.
 
 ![preview](https://user-images.githubusercontent.com/52194475/91465865-a0dc1780-e88e-11ea-8a41-1ed1f5275c95.png)
 
 This plugin is **Free**
 
-## Demo
+## What is jSpreadsheet ?
 
-Demo available on [Demo of plugin](https://demo.gbonnaire.fr/jExcel/plugin.contextmenu.php)
+jSpreadsheet, a lightweight Vanilla JavaScript plugin, can help you create exceptional web-based interactive tables and spreadsheets. Compatible with most widely-used spreadsheet software, such as Excel or Google Spreadsheet, it offers users an unrivalled Excel-like user experience. It also works well with prominent modern frameworks and flexibly utilizes a large collection of events, extensions and configurations to meet different application requirements. Impress your clients with a better user experience and a great dynamic interactive data management tool.
 
-## GitHub
-
-Source available on GitHub : [GitHub](https://github.com/Guillaume-Bo/jexcel-plugins-and-editors/tree/master/plugins/contextmenu_shortcut)
+- [Download JSpreadsheet](https://www.jspreadsheet.com)
 
 ## Documentation
 
 ### Dependencies
 
-- [JSpreadsheet Pro v7](https://www.jspreadsheet.net/v7)
+- [JSpreadsheet Pro v7](https://www.jspreadsheet.com/v7)
 
 - With default options of plugin, you should use [Material Design icons](https://material.io/resources/icons/). But, if you want, you can use fontawesome with editing all icons
 
@@ -153,18 +151,18 @@ Source available on GitHub : [GitHub](https://github.com/Guillaume-Bo/jexcel-plu
 
 Header on page
 ```HTML
-<script src="https://jexcel.net/v7/jexcel.js"></script>
-<script src="https://jexcel.net/v7/jsuites.js"></script>
-<link rel="stylesheet" href="https://jexcel.net/v7/jsuites.css" type="text/css" />
-<link rel="stylesheet" href="https://jexcel.net/v7/jexcel.css" type="text/css" />
+<script src="https://jspreadsheet.com/v7/jspreadsheet.js"></script>
+<script src="https://jspreadsheet.com/v7/jsuites.js"></script>
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jsuites.css" type="text/css" />
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jspreadsheet.css" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 
-<script src="/path/to/jexcel.contextmenu_shortcut.js"></script>
+<script src="/path/to/contextmenu_shortcut.min.js"></script>
 ```
 
-Initialize plugin on JExcel
+Initialize plugin on jSpreadsheet
 ```JavaScript
-jexcel(document.getElementById('spreadsheet'), {
+jSpreadsheet(document.getElementById('spreadsheet'), {
 	...
 	plugins: [
       ...
@@ -181,18 +179,18 @@ Use this way for defined icon of FontAwesome
 
 Header on page
 ```HTML
-<script src="https://jexcel.net/v7/jexcel.js"></script>
-<script src="https://jexcel.net/v7/jsuites.js"></script>
-<link rel="stylesheet" href="https://jexcel.net/v7/jsuites.css" type="text/css" />
-<link rel="stylesheet" href="https://jexcel.net/v7/jexcel.css" type="text/css" />
+<script src="https://jspreadsheet.com/v7/jspreadsheet.js"></script>
+<script src="https://jspreadsheet.com/v7/jsuites.js"></script>
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jsuites.css" type="text/css" />
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jspreadsheet.css" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 
-<script src="/path/to/jexcel.contextmenu_shortcut.js"></script>
+<script src="/path/to/contextmenu_shortcut.min.js"></script>
 ```
 
-Initialize plugin on JExcel
+Initialize plugin on jSpreadsheet
 ```JavaScript
-jexcel(document.getElementById('spreadsheet'), {
+jSpreadsheet(document.getElementById('spreadsheet'), {
 	...
 	plugins: [
       ...
@@ -209,13 +207,14 @@ jexcel(document.getElementById('spreadsheet'), {
 You can use this CDN link
 
 ```HTML
-<script src="https://cdn.jsdelivr.net/gh/Guillaume-Bo/jexcel-plugins-and-editors@latest/plugins/contextmenu_shortcut/jexcel.contextmenu_shortcut.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/GBonnaire/jspreadsheet-plugins-and-editors@latest/plugins/contextmenu_shortcut.min.js"></script>
 ```
 
 ## NPM
-Coming soon (March 2021)
+Coming soon (2021)
+npm install @jspreadsheet/contextmenu_shortcut
 ```javascript
-import download from '@jspreadsheet/contextmenu_shortcut';
+import jss_contextmenu_shortcut from '@jspreadsheet/contextmenu_shortcut';
 ```
 
 ## Copyright and license
