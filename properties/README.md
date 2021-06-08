@@ -58,7 +58,7 @@ A following working example can be found <a href='https://jspreadsheet.com/plugi
 &#60;div id="spreadsheet">&#60;/div>
 
 &#60;script>
-jexcel(document.getElementById('spreadsheet'), {
+jspreadsheet(document.getElementById('spreadsheet'), {
     minDimension: [10,10],
     license: '<?php echo $this->view['license']; ?>',
     allowComments: false,
