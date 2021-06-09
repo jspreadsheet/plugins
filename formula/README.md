@@ -127,22 +127,22 @@ Source available on Repo.Gbonnaire.fr : [Repo.Gbonnaire.fr](https://repo.gbonnai
 		<tr>
 			<td><code>hideBar() → Void</code></td>
 			<td>Hide formula bar</td>
-			<td><code>jexcel.current.plugins.formula.hide();</code></td>
+			<td><code>jspreadsheet.current.plugins.formula.hide();</code></td>
 		</tr>
                 <tr>
 			<td><code>refreshDoc() → Void</code></td>
 			<td>Refresh Documentation after edit element of Formula documentation</td>
-			<td><code>jexcel.current.plugins.formula.refreshDoc();</code></td>
+			<td><code>jspreadsheet.current.plugins.formula.refreshDoc();</code></td>
 		</tr>
                 <tr>
 			<td><code>showBar() → Void</code></td>
 			<td>Show formula bar</td>
-			<td><code>jexcel.current.plugins.formula.show();</code></td>
+			<td><code>jspreadsheet.current.plugins.formula.show();</code></td>
 		</tr>
                 <tr>
                         <td><code>formulabarInput</code></td>
 			<td>Get Element of formula</td>
-			<td><code>jexcel.current.plugins.formula.formulabarInput</code></td>
+			<td><code>jspreadsheet.current.plugins.formula.formulabarInput</code></td>
                 </tr>
 	</tbody>
 </table>
@@ -200,10 +200,10 @@ Important on <code>jexcel.formulasDoc</code> object, define key property formula
 ## Get started
 Header on page
 ```HTML
-<script src="https://jexcel.net/v7/jexcel.js"></script>
-<script src="https://jexcel.net/v7/jsuites.js"></script>
-<link rel="stylesheet" href="https://jexcel.net/v7/jsuites.css" type="text/css" />
-<link rel="stylesheet" href="https://jexcel.net/v7/jexcel.css" type="text/css" />
+<script src="https://jspreadsheet.com/v7/jspreadsheet.js"></script>
+<script src="https://jspreadsheet.com/v7/jsuites.js"></script>
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jsuites.css" type="text/css" />
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jspreadsheet.css" type="text/css" />
 
 <script src="/path/to/jexcel.formula.js"></script>
 <link rel="stylesheet" href="/path/to/jexcel.formula.css" type="text/css" />
@@ -211,11 +211,11 @@ Header on page
 
 Initialize plugin on JExcel
 ```JavaScript
-jexcel(document.getElementById('spreadsheet'), {
+jspreadsheet(document.getElementById('spreadsheet'), {
 	...
 	plugins: [
       ...
-      { name:'formula', plugin:jexcel_formula },
+      { name:'formula', plugin:jss_formula },
       ...  
     ],
     ...
@@ -224,26 +224,26 @@ jexcel(document.getElementById('spreadsheet'), {
 ## Example with custom formula
 Header on page
 ```HTML
-<script src="https://jexcel.net/v7/jexcel.js"></script>
-<script src="https://jexcel.net/v7/jsuites.js"></script>
-<link rel="stylesheet" href="https://jexcel.net/v7/jsuites.css" type="text/css" />
-<link rel="stylesheet" href="https://jexcel.net/v7/jexcel.css" type="text/css" />
+<script src="https://jspreadsheet.com/v7/jspreadsheet.js"></script>
+<script src="https://jspreadsheet.com/v7/jsuites.js"></script>
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jsuites.css" type="text/css" />
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jspreadsheet.css" type="text/css" />
 
 <script src="/path/to/jexcel.formula.js"></script>
 <link rel="stylesheet" href="/path/to/jexcel.formula.css" type="text/css" />
 <script>
    var MY_CUSTOM_FORMULA = function(a,b) {return a+b;};
-   jexcel.formulasDoc["MY_CUSTOM_FORMULA()"] = {syntax:"MY_CUSTOM_FORMULA(number,number)",description:"One custom formula for test"};
+   jspreadsheet.formulasDoc["MY_CUSTOM_FORMULA()"] = {syntax:"MY_CUSTOM_FORMULA(number,number)",description:"One custom formula for test"};
 </script>
 ```
 
-Initialize plugin on JExcel
+Initialize plugin on JSpreadsheet
 ```JavaScript
-jexcel(document.getElementById('spreadsheet'), {
+jspreadsheet(document.getElementById('spreadsheet'), {
 	...
 	plugins: [
       ...
-   	{ name:'formula', plugin:jexcel_formula },
+   	{ name:'formula', plugin:jss_formula },
       ...  
     ],
     ...

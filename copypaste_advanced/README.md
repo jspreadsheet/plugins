@@ -89,13 +89,13 @@ you can defined on translation global to replace var <code>text_XXXX</code> by <
 	<tbody>
 		<tr>
 			<td><code>copy(*Optional* Boolean cut) → Array</code></td>
-			<td>Copy selected cells. If copy(true), you cut selected cell. This methods return same result of jSpreadsheet.current.copy().</td>
-			<td><code>jSpreadsheet.current.plugins.copypaste_adv.copy();</code></td>
+			<td>Copy selected cells. If copy(true), you cut selected cell. This methods return same result of jspreadsheet.current.copy().</td>
+			<td><code>jspreadsheet.current.plugins.copypaste_adv.copy();</code></td>
 		</tr>
 		<tr>
 			<td><code>paste(*Optional* Boolean OnlyValue) → Void</code></td>
 			<td>paste data copied on selected cell</td>
-			<td><code>jSpreadsheet.current.plugins.copypaste_adv.paste();</code></td>
+			<td><code>jspreadsheet.current.plugins.copypaste_adv.paste();</code></td>
 		</tr>
 	</tbody>
 </table>
@@ -114,7 +114,7 @@ Header on page
 
 Initialize plugin on jSpreadsheet
 ```JavaScript
-jSpreadsheet(document.getElementById('spreadsheet'), {
+jspreadsheet(document.getElementById('spreadsheet'), {
 	...
 	plugins: [
       ...
@@ -128,31 +128,31 @@ jSpreadsheet(document.getElementById('spreadsheet'), {
 #### Example of code for custom toolbar
 
 ```JavaScript
-jSpreadsheet(document.getElementById('spreadsheet'), {
+jspreadsheet(document.getElementById('spreadsheet'), {
 	...
 	toolbar: [
       ...
         {
 	        content: 'content_cut',
 	        onclick: function() {
-	            if (jSpreadsheet.current.selectedCell) {
-	                jSpreadsheet.current.copy(true);
+	            if (jspreadsheet.current.selectedCell) {
+	                jspreadsheet.current.copy(true);
 	            }
 	        }
 	    },
 	    {
 	        content: 'content_copy',
 	        onclick: function() {
-	            if (jSpreadsheet.current.selectedCell) {
-	                jSpreadsheet.current.copy();
+	            if (jspreadsheet.current.selectedCell) {
+	                jspreadsheet.current.copy();
 	            }
 	        }
 	    },
 	    {
 	        content: 'content_paste',
 	        onclick: function() {
-	            if (jSpreadsheet.current.selectedCell) {
-	                jSpreadsheet.current.plugins.copypaste_adv.paste();
+	            if (jspreadsheet.current.selectedCell) {
+	                jspreadsheet.current.plugins.copypaste_adv.paste();
 	            }
 	        }
 	    },
@@ -167,7 +167,7 @@ jSpreadsheet(document.getElementById('spreadsheet'), {
 You can use this CDN link
 
 ```HTML
-<script src="https://cdn.jsdelivr.net/gh/GBonnaire/jspreadsheet-plugins-and-editors@latest/plugins/copypaste_advanced.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/GBonnaire/jspreadsheet-plugins-and-editors@latest/plugins/dist/copypaste_advanced.min.js"></script>
 ```
 
 ## NPM

@@ -96,7 +96,7 @@ Source available on Repo.Gbonnaire.fr : [Repo.Gbonnaire.fr](https://repo.gbonnai
 		<tr>
 			<td><code>open() → Void</code></td>
 			<td>open modal for choose file on local</td>
-			<td><code>jexcel.current.plugins.formula.hide();</code></td>
+			<td><code>jspreadsheet.current.plugins.openFile.open();</code></td>
 		</tr>
 	</tbody>
 </table>
@@ -125,17 +125,17 @@ Source available on Repo.Gbonnaire.fr : [Repo.Gbonnaire.fr](https://repo.gbonnai
 ## Get started
 Header on page
 ```HTML
-<script src="https://jexcel.net/v7/jexcel.js"></script>
-<script src="https://jexcel.net/v7/jsuites.js"></script>
-<link rel="stylesheet" href="https://jexcel.net/v7/jsuites.css" type="text/css" />
-<link rel="stylesheet" href="https://jexcel.net/v7/jexcel.css" type="text/css" />
+<script src="https://jspreadsheet.com/v7/jspreadsheet.js"></script>
+<script src="https://jspreadsheet.com/v7/jsuites.js"></script>
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jsuites.css" type="text/css" />
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jspreadsheet.css" type="text/css" />
 
 <script src="/path/to/jexcel.openFile.js"></script>
 ```
 
-Initialize plugin on JExcel
+Initialize plugin on JSpreadsheet
 ```JavaScript
-jexcel(document.getElementById('spreadsheet'), {
+jspreadsheet(document.getElementById('spreadsheet'), {
 	...
 	plugins: [
       ...

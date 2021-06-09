@@ -5,7 +5,7 @@ The mobile plugin improve JSpreadsheet for usage on mobile :
 - New item in contextMenu for edit cell
 - Select range after first selection cell origin
 
-![preview](https://repo.gbonnaire.fr/videos/jexcel_mobile.mp4)
+![preview](https://repo.gbonnaire.fr/videos/jss_mobile.mp4)
 
 
 This plugin is **Premium**
@@ -66,22 +66,22 @@ Source available on Repo.Gbonnaire.fr : [Repo.Gbonnaire.fr](https://repo.gbonnai
 ## Get started
 Header on page
 ```HTML
-<script src="https://jexcel.net/v7/jexcel.js"></script>
-<script src="https://jexcel.net/v7/jsuites.js"></script>
-<link rel="stylesheet" href="https://jexcel.net/v7/jsuites.css" type="text/css" />
-<link rel="stylesheet" href="https://jexcel.net/v7/jexcel.css" type="text/css" />
+<script src="https://jspreadsheet.com/v7/jspreadsheet.js"></script>
+<script src="https://jspreadsheet.com/v7/jsuites.js"></script>
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jsuites.css" type="text/css" />
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jspreadsheet.css" type="text/css" />
 
 <script src="/path/to/jexcel.mobile.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 ```
 
-Initialize plugin on JExcel
+Initialize plugin on JSpreadsheet
 ```JavaScript
-jexcel(document.getElementById('spreadsheet'), {
+jspreadsheet(document.getElementById('spreadsheet'), {
 	...
 	plugins: [
       ...
-      { name:'mobile', plugin:jexcel_mobile},
+      { name:'mobile', plugin:jss_mobile},
       ...  
     ],
     ...

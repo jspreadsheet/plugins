@@ -85,7 +85,7 @@ Source available on Repo.Gbonnaire.fr : [Repo.Gbonnaire.fr](https://repo.gbonnai
 		<tr>
 			<td><code>getJExcelSummary() -> Instance of JExcel (Summary)</code></td>
 			<td>Return instance of Jexcel for manipulate programmaticaly</td>
-			<td><code>jexcel.current.plugins.summary.getJExcelSummary();</code></td>
+			<td><code>jspreadsheet.current.plugins.summary.getJExcelSummary();</code></td>
 		</tr>
 	</tbody>
 </table>
@@ -94,23 +94,23 @@ Source available on Repo.Gbonnaire.fr : [Repo.Gbonnaire.fr](https://repo.gbonnai
 
 Header on page
 ```HTML
-<script src="https://jexcel.net/v7/jexcel.js"></script>
-<script src="https://jexcel.net/v7/jsuites.js"></script>
-<link rel="stylesheet" href="https://jexcel.net/v7/jsuites.css" type="text/css" />
-<link rel="stylesheet" href="https://jexcel.net/v7/jexcel.css" type="text/css" />
+<script src="https://jspreadsheet.com/v7/jspreadsheet.js"></script>
+<script src="https://jspreadsheet.com/v7/jsuites.js"></script>
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jsuites.css" type="text/css" />
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jspreadsheet.css" type="text/css" />
 
 <script src="/path/to/jexcel.conditionalstyle.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/Guillaume-Bo/jexcel-plugins-and-editors@latest/plugins/rowHeaderRename/jexcel.rowHeaderRename.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/GBonnaire/jspreadsheet-plugins-and-editors@latest/plugins/dist/rowHeaderRename.min.js"></script>
 
 ```
 
-Initialize plugin on JExcel
+Initialize plugin on JSpreadsheet
 ```JavaScript
-jexcel(document.getElementById('spreadsheet'), {
+jspreadsheet(document.getElementById('spreadsheet'), {
 	...
 	plugins: [
       ...
-   	  { name:'summary', plugin:jexcel_summary, options:{
+   	  { name:'summary', plugin:jss_summary, options:{
             columns: [
                 { title: "0 - 19", width: 80 },
                 { title: "20 - 29", width: 80 },

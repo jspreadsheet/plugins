@@ -87,12 +87,12 @@ you can defined on translation global to replace var <code>text_XXXX</code> by <
 		<tr>
 			<td><code>add(String title, *Optional* Array/Function items, *Optional* Int position) → Void</code></td>
 			<td>add new top menu. You can use directly <code>instance.addTopmenu</code> with same arguments</td>
-			<td><code>jSpreadsheet.current.plugins.topmenu.add("Format");</code></td>
+			<td><code>jspreadsheet.current.plugins.topmenu.add("Format");</code></td>
 		</tr>
 		<tr>
 			<td><code>refresh() → Void</code></td>
 			<td>Refresh top menu</td>
-			<td><code>jSpreadsheet.current.plugins.topmenu.refresh();</code></td>
+			<td><code>jspreadsheet.current.plugins.topmenu.refresh();</code></td>
 		</tr>
 	</tbody>
 </table>
@@ -235,7 +235,7 @@ Header on page
 
 Initialize plugin on jSpreadsheet
 ```JavaScript
-jSpreadsheet(document.getElementById('spreadsheet'), {
+jspreadsheet(document.getElementById('spreadsheet'), {
 	...
 	plugins: [
       ...
@@ -251,8 +251,8 @@ jSpreadsheet(document.getElementById('spreadsheet'), {
 You can use this CDN link
 
 ```HTML
-<script src="https://cdn.jsdelivr.net/gh/GBonnaire/jspreadsheet-plugins-and-editors@latest/plugins/topmenu.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/GBonnaire/jspreadsheet-plugins-and-editors@latest/plugins/topmenu.min.css" type="text/css" />
+<script src="https://cdn.jsdelivr.net/gh/GBonnaire/jspreadsheet-plugins-and-editors@latest/plugins/dist/topmenu.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/GBonnaire/jspreadsheet-plugins-and-editors@latest/plugins/dist/topmenu.min.css" type="text/css" />
 ```
 
 ## NPM

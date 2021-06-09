@@ -220,32 +220,32 @@ Source available on Repo.Gbonnaire.fr : [Repo.Gbonnaire.fr](https://repo.gbonnai
 		<tr>
 			<td><code>do(*optional* Object optionsPrint) → Void</code></td>
 			<td>execute print with options, if optionsPrint is null, print with default options</td>
-			<td><code>jexcel.current.plugins.print.do({title:'test button print', index:false});</code></td>
+			<td><code>jspreadsheet.current.plugins.print.do({title:'test button print', index:false});</code></td>
 		</tr>
 		<tr>
 			<td><code>open() → Void</code></td>
 			<td>Open popup print</td>
-			<td><code>jexcel.current.plugins.print.open();</code></td>
+			<td><code>jspreadsheet.current.plugins.print.open();</code></td>
 		</tr>
 		<tr>
 			<td><code>preview(*optional* Object optionsPrint) → Void</code></td>
 			<td>execute preview print with options, if optionsPrint is null, preview with default options</td>
-			<td><code>jexcel.current.plugins.print.preview({title:'test button print', index:false});</code></td>
+			<td><code>jspreadsheet.current.plugins.print.preview({title:'test button print', index:false});</code></td>
 		</tr>
 		<tr>
 			<td><code>resetRange() → Void</code></td>
 			<td>remove range print area</td>
-			<td><code>jexcel.current.plugins.print.resetRange();</code></td>
+			<td><code>jspreadsheet.current.plugins.print.resetRange();</code></td>
 		</tr>
 		<tr>
 			<td><code>setRange(Array|String range) → Void</code></td>
 			<td>set range print area (by Coord [x1,y1,x2,y2] of A1:B10)</td>
-			<td><code>jexcel.current.plugins.print.setRange("A1:B10");</code></td>
+			<td><code>jspreadsheet.current.plugins.print.setRange("A1:B10");</code></td>
 		</tr>
 		<tr>
 			<td><code>setStyle(String style) → Void</code></td>
 			<td>set style of page printed</td>
-			<td><code>jexcel.current.plugins.print.setStyle(".jexcel tbody tr td.cellAlert {background-color: #f46e42!important;color: #ffffff;}");</code></td>
+			<td><code>jspreadsheet.current.plugins.print.setStyle(".jexcel tbody tr td.cellAlert {background-color: #f46e42!important;color: #ffffff;}");</code></td>
 		</tr>
 	</tbody>
 </table>
@@ -272,21 +272,21 @@ Source available on Repo.Gbonnaire.fr : [Repo.Gbonnaire.fr](https://repo.gbonnai
 ## Get started
 Header on page
 ```HTML
-<script src="https://jexcel.net/v7/jexcel.js"></script>
-<script src="https://jexcel.net/v7/jsuites.js"></script>
-<link rel="stylesheet" href="https://jexcel.net/v7/jsuites.css" type="text/css" />
-<link rel="stylesheet" href="https://jexcel.net/v7/jexcel.css" type="text/css" />
+<script src="https://jspreadsheet.com/v7/jspreadsheet.js"></script>
+<script src="https://jspreadsheet.com/v7/jsuites.js"></script>
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jsuites.css" type="text/css" />
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jspreadsheet.css" type="text/css" />
 
 <script src="/path/to/jexcel.print.js"></script>
 ```
 
-Initialize plugin on JExcel
+Initialize plugin on JSpreadsheet
 ```JavaScript
-jexcel(document.getElementById('spreadsheet'), {
+jspreadsheet(document.getElementById('spreadsheet'), {
 	...
 	plugins: [
       ...
-      { name:'print', plugin:jexcel_print},
+      { name:'print', plugin:jss_print},
       ...  
     ],
     ...
@@ -295,21 +295,21 @@ jexcel(document.getElementById('spreadsheet'), {
 ## Example
 Header on page
 ```HTML
-<script src="https://jexcel.net/v7/jexcel.js"></script>
-<script src="https://jexcel.net/v7/jsuites.js"></script>
-<link rel="stylesheet" href="https://jexcel.net/v7/jsuites.css" type="text/css" />
-<link rel="stylesheet" href="https://jexcel.net/v7/jexcel.css" type="text/css" />
+<script src="https://jspreadsheet.com/v7/jspreadsheet.js"></script>
+<script src="https://jspreadsheet.com/v7/jsuites.js"></script>
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jsuites.css" type="text/css" />
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jspreadsheet.css" type="text/css" />
 
 <script src="/path/to/jexcel.print.js"></script>
 ```
 
-Initialize plugin on JExcel
+Initialize plugin on JSpreadsheet
 ```JavaScript
-jexcel(document.getElementById('spreadsheet'), {
+jspreadsheet(document.getElementById('spreadsheet'), {
 	...
 	plugins: [
       ...
-   		 { name:'print', plugin:jexcel_print, options:{title:"test print", index:false, style:function(obj) { return obj.plugins.conditionalstyle.getCSS(); }} }, // For apply style of plugin conditional style
+   		 { name:'print', plugin:jss_print, options:{title:"test print", index:false, style:function(obj) { return obj.plugins.conditionalstyle.getCSS(); }} }, // For apply style of plugin conditional style
       ...  
     ],
     ...

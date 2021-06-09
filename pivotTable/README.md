@@ -170,12 +170,12 @@ Source available on Repo.Gbonnaire.fr : [Repo.Gbonnaire.fr](https://repo.gbonnai
 		<tr>
 			<td><code>setData(Array) -> Void</code></td>
 			<td>Defined data for pivotTable</td>
-			<td><code>jexcel.current.plugins.pivotTable.setData([[1,2,3],[4,5,6]]);</code></td>
+			<td><code>jspreadsheet.current.plugins.pivotTable.setData([[1,2,3],[4,5,6]]);</code></td>
 		</tr>
 		<tr>
 			<td><code>updatePivot() -> Void</code></td>
 			<td>refresh pivot from data</td>
-			<td><code>jexcel.current.plugins.pivotTable.updatePivot();</code></td>
+			<td><code>jspreadsheet.current.plugins.pivotTable.updatePivot();</code></td>
 		</tr>
 	</tbody>
 </table>
@@ -184,21 +184,21 @@ Source available on Repo.Gbonnaire.fr : [Repo.Gbonnaire.fr](https://repo.gbonnai
 
 Header on page
 ```HTML
-<script src="https://jexcel.net/v7/jexcel.js"></script>
-<script src="https://jexcel.net/v7/jsuites.js"></script>
-<link rel="stylesheet" href="https://jexcel.net/v7/jsuites.css" type="text/css" />
-<link rel="stylesheet" href="https://jexcel.net/v7/jexcel.css" type="text/css" />
+<script src="https://jspreadsheet.com/v7/jspreadsheet.js"></script>
+<script src="https://jspreadsheet.com/v7/jsuites.js"></script>
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jsuites.css" type="text/css" />
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jspreadsheet.css" type="text/css" />
 
 <script src="/path/to/jexcel.pivotTable.js"></script>
 ```
 
-Initialize plugin on JExcel
+Initialize plugin on JSpreadsheet
 ```JavaScript
-jexcel(document.getElementById('spreadsheet'), {
+jspreadsheet(document.getElementById('spreadsheet'), {
 	...
 	plugins: [
       ...
-     { name:'pivot', plugin:jexcel_pivotTable, options:{
+     { name:'pivot', plugin:jss_pivotTable, options:{
                 rows: ["A", "B", "C"], 
                 columns: ["E", "F", "G"], 
                 values: "H", 
