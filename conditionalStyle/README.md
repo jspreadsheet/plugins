@@ -116,27 +116,27 @@ Source available on Repo.Gbonnaire.fr : [Repo.Gbonnaire.fr](https://repo.gbonnai
 		<tr>
 			<td><code>addRule(Range<String>, Criteria<String|Int|Float|Boolean>, Style<String>, Class<String>, Position<Int>) -> Void</code></td>
 			<td>Create new rule</td>
-			<td><code>jexcel.current.plugins.conditionalstyle.addRule("B:B", ">3000", "color: red;", null, 1);</code></td>
+			<td><code>jspreadsheet.current.plugins.conditionalstyle.addRule("B:B", ">3000", "color: red;", null, 1);</code></td>
 		</tr>
 		<tr>
 			<td><code>editRule(Position<Int>, Range<String>, Criteria<String|Int|Float|Boolean>, Style<String>, Class<String>) -> Void</code></td>
 			<td>Edit rule on specific position</td>
-			<td><code>jexcel.current.plugins.conditionalstyle.editRule(1, "B:B", "<3000", "color: red;", null);</code></td>
+			<td><code>jspreadsheet.current.plugins.conditionalstyle.editRule(1, "B:B", "<3000", "color: red;", null);</code></td>
 		</tr>
 		<tr>
 			<td><code>getCSS() -> String</code></td>
 			<td>Get all CSS of styles. Use for example with print plugin</td>
-			<td><code>{ name:'print', plugin:jexcel_print, options:{style:function(obj) { return obj.plugins.conditionalstyle.getCSS(); }} },</code></td>
+			<td><code>{ name:'print', plugin:jss_print, options:{style:function(obj) { return obj.plugins.conditionalstyle.getCSS(); }} },</code></td>
 		</tr>
 		<tr>
 			<td><code>moveRulePosition(Position<Int>, NewPosition<Int>) -> Void</code></td>
 			<td>Move rule to specific position</td>
-			<td><code>jexcel.current.plugins.conditionalstyle.moveRulePosition(1, 3);</code></td>
+			<td><code>jspreadsheet.current.plugins.conditionalstyle.moveRulePosition(1, 3);</code></td>
 		</tr>
 		<tr>
 			<td><code>removeRule(Position<Int>) -> Void</code></td>
 			<td>Remove rule on specific position</td>
-			<td><code>jexcel.current.plugins.conditionalstyle.removeRule(3);</code></td>
+			<td><code>jspreadsheet.current.plugins.conditionalstyle.removeRule(3);</code></td>
 		</tr>
 	</tbody>
 </table>
@@ -145,21 +145,21 @@ Source available on Repo.Gbonnaire.fr : [Repo.Gbonnaire.fr](https://repo.gbonnai
 
 Header on page
 ```HTML
-<script src="https://jexcel.net/v7/jexcel.js"></script>
-<script src="https://jexcel.net/v7/jsuites.js"></script>
-<link rel="stylesheet" href="https://jexcel.net/v7/jsuites.css" type="text/css" />
-<link rel="stylesheet" href="https://jexcel.net/v7/jexcel.css" type="text/css" />
+<script src="https://jspreadsheet.com/v7/jspreadsheet.js"></script>
+<script src="https://jspreadsheet.com/v7/jsuites.js"></script>
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jsuites.css" type="text/css" />
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jspreadsheet.css" type="text/css" />
 
 <script src="/path/to/jexcel.conditionalstyle.js"></script>
 ```
 
-Initialize plugin on JExcel
+Initialize plugin on JSpreadsheet
 ```JavaScript
-jexcel(document.getElementById('spreadsheet'), {
+jspreadsheet(document.getElementById('spreadsheet'), {
 	...
 	plugins: [
       ...
-      { name:'conditionalstyle', plugin:jexcel_conditionalstyle},
+      { name:'conditionalstyle', plugin:jss_conditionalstyle},
       ...  
     ],
     ...
@@ -168,10 +168,10 @@ jexcel(document.getElementById('spreadsheet'), {
 ### Example
 Header on page
 ```HTML
-<script src="https://jexcel.net/v7/jexcel.js"></script>
-<script src="https://jexcel.net/v7/jsuites.js"></script>
-<link rel="stylesheet" href="https://jexcel.net/v7/jsuites.css" type="text/css" />
-<link rel="stylesheet" href="https://jexcel.net/v7/jexcel.css" type="text/css" />
+<script src="https://jspreadsheet.com/v7/jspreadsheet.js"></script>
+<script src="https://jspreadsheet.com/v7/jsuites.js"></script>
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jsuites.css" type="text/css" />
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jspreadsheet.css" type="text/css" />
 
 <script src="/path/to/jexcel.conditionalstyle.js"></script>
 
@@ -183,13 +183,13 @@ Header on page
 </style>
 ```
 
-Initialize plugin on JExcel
+Initialize plugin on JSpreadsheet
 ```JavaScript
-jexcel(document.getElementById('spreadsheet'), {
+jspreadsheet(document.getElementById('spreadsheet'), {
 	...
 	plugins: [
       ...
-   		{ name:'conditionalstyle', plugin:jexcel_conditionalstyle, options:{rules:[
+   		{ name:'conditionalstyle', plugin:jss_conditionalstyle, options:{rules:[
    			// #Rules 1 : For Range B1:B10 and Row 1, cell = Honda use ClassCss cellAlert
 	                {range:"B1:B10;1:1", criteria: "Honda", class:"cellAlert"}, 
 	                // #Rule 2 : All data of Column G if value > 3000, apply this style and stop here (no check next rules if true)

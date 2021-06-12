@@ -106,17 +106,17 @@ Source available on Repo.Gbonnaire.fr : [Repo.Gbonnaire.fr](https://repo.gbonnai
         <tr>
             <td><code>setTooltip(String cellName, String|Object|Array message, *optional* String type, *optional* Boolean removeOnChange ) -> Void</code></td>
             <td>Set tooltip for one cell. Message can be an object of value or Array. In this case, on tooltip use can copy value</td>
-            <td><code>jexcel.current.plugins.tooltip.setTooltip("A1", "My tooltip");</code> or <code>myTable.setTooltip("A1", "My tooltip");</code></td>
+            <td><code>jspreadsheet.current.plugins.tooltip.setTooltip("A1", "My tooltip");</code> or <code>myTable.setTooltip("A1", "My tooltip");</code></td>
         </tr>
         <tr>
             <td><code>removeTooltip(String cellName) -> Void</code></td>
             <td>Remove tooltip for one cell</td>
-            <td><code>jexcel.current.plugins.tooltip.removeTooltip("A1");</code> or <code>myTable.removeTooltip("A1");</code></td>
+            <td><code>jspreadsheet.current.plugins.tooltip.removeTooltip("A1");</code> or <code>myTable.removeTooltip("A1");</code></td>
         </tr>
         <tr>
             <td><code>getTooltipType(String cellName) -> String</code></td>
             <td>get tooltip type for one cell</td>
-            <td><code>jexcel.current.plugins.tooltip.getTooltipType("A1");</code></td>
+            <td><code>jspreadsheet.current.plugins.tooltip.getTooltipType("A1");</code></td>
         </tr>
     </tbody>
 </table>
@@ -124,20 +124,20 @@ Source available on Repo.Gbonnaire.fr : [Repo.Gbonnaire.fr](https://repo.gbonnai
 ## Helpers
 
 For help to set type, you can use helper
-For tooltip type info : <code>jexcel.helpers.tooltipType.info</code>
-For tooltip type success : <code>jexcel.helpers.tooltipType.success</code>
-For tooltip type warning : <code>jexcel.helpers.tooltipType.warning</code>
-For tooltip type error : <code>jexcel.helpers.tooltipType.error</code>
-For tooltip type comment : <code>jexcel.helpers.tooltipType.comment</code>
+For tooltip type info : <code>jspreadsheet.helpers.tooltipType.info</code>
+For tooltip type success : <code>jspreadsheet.helpers.tooltipType.success</code>
+For tooltip type warning : <code>jspreadsheet.helpers.tooltipType.warning</code>
+For tooltip type error : <code>jspreadsheet.helpers.tooltipType.error</code>
+For tooltip type comment : <code>jspreadsheet.helpers.tooltipType.comment</code>
 
 ## Get started
 
 Header on page
 ```HTML
-<script src="https://jexcel.net/v7/jexcel.js"></script>
-<script src="https://jexcel.net/v7/jsuites.js"></script>
-<link rel="stylesheet" href="https://jexcel.net/v7/jsuites.css" type="text/css" />
-<link rel="stylesheet" href="https://jexcel.net/v7/jexcel.css" type="text/css" />
+<script src="https://jspreadsheet.com/v7/jspreadsheet.js"></script>
+<script src="https://jspreadsheet.com/v7/jsuites.js"></script>
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jsuites.css" type="text/css" />
+<link rel="stylesheet" href="https://jspreadsheet.com/v7/jspreadsheet.css" type="text/css" />
 
 <script src="/path/to/jexcel.tooltip.js"></script>
 <link rel="stylesheet" href="/path/to/jexcel.tooltip.css" type="text/css" />
@@ -145,18 +145,18 @@ Header on page
 
 ```
 
-Initialize plugin on JExcel
+Initialize plugin on JSpreadsheet
 ```JavaScript
-var myTable = jexcel(document.getElementById('spreadsheet'), {
+var myTable = jspreadsheet(document.getElementById('spreadsheet'), {
     ...
     plugins: [
       ...
-      { name:'tooltip', plugin:jexcel_tooltip, options:{
+      { name:'tooltip', plugin:jss_tooltip, options:{
                     forComments: true,
                     tooltips: {
-                          "A1": {message: "one error example", type:jexcel.helpers.tooltipType.error},
-                          "B1": {message: "one warning example with <i>HTML</i><hr>Ok!", type:jexcel.helpers.tooltipType.warning},
-                          "C1": {message: "one success example", type:jexcel.helpers.tooltipType.success},
+                          "A1": {message: "one error example", type:jspreadsheet.helpers.tooltipType.error},
+                          "B1": {message: "one warning example with <i>HTML</i><hr>Ok!", type:jspreadsheet.helpers.tooltipType.warning},
+                          "C1": {message: "one success example", type:jspreadsheet.helpers.tooltipType.success},
                      }
           }},
       ...  
