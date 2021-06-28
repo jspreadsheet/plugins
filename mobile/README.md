@@ -5,7 +5,7 @@ The mobile plugin improve JSpreadsheet for usage on mobile :
 - New item in contextMenu for edit cell
 - Select range after first selection cell origin
 
-![preview](https://repo.gbonnaire.fr/videos/jss_mobile.mp4)
+![preview](https://user-images.githubusercontent.com/52194475/123639007-118df080-d820-11eb-9609-10dddc3a861b.png)
 
 
 This plugin is **Premium**
