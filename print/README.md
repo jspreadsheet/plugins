@@ -15,7 +15,7 @@ Add icon on toolbar
 - Row breaker (define row who break page)
 
 
-![preview](https://s1.gifyu.com/images/print.gif)
+![preview](https://user-images.githubusercontent.com/52194475/123638873-f1f6c800-d81f-11eb-861c-8767ef3857ee.png)
 
 
 This plugin is **Premium**
